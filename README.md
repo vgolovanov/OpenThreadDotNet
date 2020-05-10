@@ -12,7 +12,7 @@ As end device can be used any module from supported platforms https://openthread
 	
 With OpenThreadDotNet library is possible to scan for nearby wireless networks, join to the wireless networks and form a new wireless mesh network.
 
-Create a new Thread wireless network and create UDP sever we need just 6 lines of code.
+Create a new Thread wireless network and create UDP sever we need just 6 lines of code and about 10 lines of code to run UDP server.
 ```csharp
            	StreamUART uartStream = new StreamUART("COMxx");
 
