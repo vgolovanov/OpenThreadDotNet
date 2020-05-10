@@ -32,9 +32,7 @@ Create a new Thread wireless network we need just 4 lines of code and about 10 l
                 {		
 			byte[] data = receiver.Receive(ref remoteIp);
                     	string message = Encoding.ASCII.GetString(data);
-                    	Console.WriteLine("\n");
                     	Console.WriteLine("{0} bytes from {1} {2} {3}", message.Length, remoteIp.Address, remoteIp.Port, message);
-                    	Console.WriteLine(">");
                 }
 	}		
 ```
