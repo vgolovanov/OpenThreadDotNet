@@ -3,12 +3,11 @@
 In future is plans to port the library to nanoframework https://nanoframework.net/ and TinyClrOs https://www.ghielectronics.com/tinyclr/features/ platforms.
 As end device can be used any module from supported platforms https://openthread.io/platforms with NCP firmware. The library tested on TI CC2652 based board http://www.ti.com/tool/LAUNCHXL-CC26X2R1 and nrf52840 based modules http://www.skylabmodule.com/skylab-125k-ram-industry-grade-low-energy-multiprotocol-5-0-ant-bluetooth-module/
 
-	NCP project is .Net implimenation of Spinel protocol.
-	Networking project is high level API to manage Thread network.
-	LowpanCmd project is console application to manage Thread network. Similar to https://github.com/openthread/pyspinel
-	Samples project is basic samples how to use OpenThreadDotNet library.
-
-
+NCP project is .Net implimenation of Spinel protocol.
+Networking project is high level API to manage Thread network.
+LowpanCmd project is console application to manage Thread network. Similar to https://github.com/openthread/pyspinel
+Samples project is basic samples how to use OpenThreadDotNet library.
+	
 With OpenThreadDotNet library is possible to scan for nearby wireless networks, join to the wireless networks and form a new wireless mesh network.
 
 Create a new Thread wireless network and create UDP sever we need just 6 lines of code.
