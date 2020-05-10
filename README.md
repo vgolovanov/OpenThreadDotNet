@@ -11,32 +11,46 @@ As Co-Processor device can be used any module from supported platforms https://o
 	
 With OpenThreadDotNet library is possible to scan for nearby wireless networks, join to the wireless networks and form a new wireless mesh network.
 
-Create a new Thread wireless network and create UDP sever we need just 4 lines of code and about 10 lines of code to run UDP server.
+Create a new Thread wireless network we need just 4 lines of code and about 10 lines of code to run UDP server.
 ```csharp
-           	StreamUART uartStream = new StreamUART("COMxx");
+	StreamUART uartStream = new StreamUART("COMxx");
+	ncpInterface = new NcpInterface();     
+	ncpInterface.Open(uartStream);	
 
-            	ncpInterface = new NcpInterface();     
-
-		ncpInterface.Open(uartStream);	
-
-            	//ncpInterface.Form(networkname, channel, masterkey, panid);
-		ncpInterface.Form("Networkname", 11, "00112233445566778899AABBCCDDEEFF", 1234);
+	//ncpInterface.Form(networkname, channel, masterkey, panid);
+	ncpInterface.Form("Networkname", 11, "00112233445566778899AABBCCDDEEFF", 1234);
            
-		UdpSocket receiver = new UdpSocket();
+	UdpSocket receiver = new UdpSocket();
             
-		receiver.Bind(IPv6Address.IPv6Any, 1000);
+	receiver.Bind(IPv6Address.IPv6Any, 1000);
             
-		IPv6EndPoint remoteIp = null;	
+	IPv6EndPoint remoteIp = null;	
 			
-		while (true)
-			{
-                if (receiver.Poll(-1, SelectMode.SelectRead))
-                {
-                    byte[] data = receiver.Receive(ref remoteIp);
-                    string message = Encoding.ASCII.GetString(data);
-                    Console.WriteLine("\n");
-                    Console.WriteLine("{0} bytes from {1} {2} {3}", message.Length, remoteIp.Address, remoteIp.Port, message);
-                    Console.WriteLine(">");
+	while (true)
+	{
+		if (receiver.Poll(-1, SelectMode.SelectRead))
+                {		
+			byte[] data = receiver.Receive(ref remoteIp);
+                    	string message = Encoding.ASCII.GetString(data);
+                    	Console.WriteLine("\n");
+                    	Console.WriteLine("{0} bytes from {1} {2} {3}", message.Length, remoteIp.Address, remoteIp.Port, message);
+                    	Console.WriteLine(">");
                 }
-            }		
+	}		
+```
+Join to existing Thread wireless network and with UDP Client sending some data to another node.
+```csharp
+	StreamUART uartStream = new StreamUART("COMxx");
+	ncpInterface = new NcpInterface();     
+	ncpInterface.Open(uartStream);	
+
+	// ncpInterface.Join(networkname, channel, masterkey, xpanid,  panid);	
+	ncpInterface.Join("Networkname", 11, "00112233445566778899AABBCCDDEEFF", "DEAD00BEEF00CAFE",  1234);
+           
+	byte[] data = Encoding.UTF8.GetBytes("Test UDP message.");
+	   
+	UdpSocket udpClient = new UdpSocket();
+	udpClient.Connect("fdde:ad00:beef:0000:488e:85b6:46d6:4436", 1000);
+        udpClient.Send(data, data.Length);
+        udpClient.Close();
 ```
