@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LowpanCmd": {
+      "commandName": "Project",
+      "commandLineArgs": "COM13"
+    }
+  }
+}
