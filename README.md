@@ -36,7 +36,7 @@ Create a new Thread wireless network we need just 4 lines of code and about 10 l
                 }
 	}		
 ```
-Join to existing Thread wireless network and with UDP Client sending some data to another node.
+Join to existing Thread wireless network and UDP Client sending data packet to another node.
 ```csharp
 	StreamUART uartStream = new StreamUART("COMxx");
 	ncpInterface = new NcpInterface();     
@@ -52,3 +52,13 @@ Join to existing Thread wireless network and with UDP Client sending some data t
         udpClient.Send(data, data.Length);
         udpClient.Close();
 ```
+
+In OpenThreadDotNet project used portions of the code, ported code, technical details and ideas from projects:
+
+https://github.com/netduino/Netduino.IP
+https://github.com/dotnet/core/
+https://github.com/openthread/pyspinel
+https://github.com/openthread/openthread/tree/master/src/ncp
+https://github.com/joakimeriksson/jipv6
+https://github.com/androidthings/sample-lowpan
+https://www.winsocketdotnetworkprogramming.com/
