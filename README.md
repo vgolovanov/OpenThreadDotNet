@@ -55,10 +55,10 @@ Join to existing Thread wireless network and UDP Client sending data packet to a
 
 In OpenThreadDotNet project used portions of the code, ported code, technical details and ideas from projects:
 
-https://github.com/netduino/Netduino.IP
-https://github.com/dotnet/core/
-https://github.com/openthread/pyspinel
-https://github.com/openthread/openthread/tree/master/src/ncp
-https://github.com/joakimeriksson/jipv6
-https://github.com/androidthings/sample-lowpan
-https://www.winsocketdotnetworkprogramming.com/
+	https://github.com/netduino/Netduino.IP
+	https://github.com/dotnet/core/
+	https://github.com/openthread/pyspinel
+	https://github.com/openthread/openthread/tree/master/src/ncp
+	https://github.com/joakimeriksson/jipv6
+	https://github.com/androidthings/sample-lowpan
+	https://www.winsocketdotnetworkprogramming.com/
