@@ -1,4 +1,4 @@
-# OpenthreadDotNet
+# OpenThreadDotNet
 .Net Core library is designed to work with the Thread network. In future is plans to port the library to nanoframework https://nanoframework.net/ and TinyClrOs https://www.ghielectronics.com/tinyclr/features/ platforms.
 
 To develop 6LoWPAN applications, you will need a radio module running as an OpenThread Network Co-Processor (NCP). 
