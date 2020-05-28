@@ -3,17 +3,24 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NCP", "NCP\NCP.csproj", "{017C59BF-33F3-410D-A4F8-BAD3F01B427B}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Networking", "Networking\Networking.csproj", "{7C357A20-C548-45C3-842B-4BA0495C5B03}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LowpanCmd", "LowpanCmd\LowpanCmd.csproj", "{41CCA24D-CC41-4FE3-A551-C80E62141289}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Samples", "Samples\Samples.csproj", "{70CB0FCA-4D39-432B-84AE-EB9BECAEEBCF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SamplesDotNetCore", "Samples\SamplesDotNetCore.csproj", "{70CB0FCA-4D39-432B-84AE-EB9BECAEEBCF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StreamDotNetCore", "StreamDotNetCore\StreamDotNetCore.csproj", "{99782C8A-46ED-4311-B0AC-EADC0C99169C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SerialDotNetCore", "StreamDotNetCore\SerialDotNetCore.csproj", "{99782C8A-46ED-4311-B0AC-EADC0C99169C}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "NCP", "NCP\NCP.shproj", "{CEBA0E85-A609-4783-A121-5C838A0ADB7F}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Networking", "Networking\Networking.shproj", "{2CC25A82-7503-42C7-8B93-553752AF8E1C}"
 EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Networking\Networking.projitems*{2cc25a82-7503-42c7-8b93-553752af8e1c}*SharedItemsImports = 13
+		Networking\Networking.projitems*{41cca24d-cc41-4fe3-a551-c80e62141289}*SharedItemsImports = 5
+		Networking\Networking.projitems*{70cb0fca-4d39-432b-84ae-eb9becaeebcf}*SharedItemsImports = 5
+		NCP\NCP.projitems*{99782c8a-46ed-4311-b0ac-eadc0c99169c}*SharedItemsImports = 5
+		NCP\NCP.projitems*{ceba0e85-a609-4783-a121-5c838a0adb7f}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -25,38 +32,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Debug|ARM.Build.0 = Debug|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Debug|x64.Build.0 = Debug|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Debug|x86.Build.0 = Debug|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Release|ARM.ActiveCfg = Release|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Release|ARM.Build.0 = Release|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Release|x64.ActiveCfg = Release|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Release|x64.Build.0 = Release|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Release|x86.ActiveCfg = Release|Any CPU
-		{017C59BF-33F3-410D-A4F8-BAD3F01B427B}.Release|x86.Build.0 = Release|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Debug|ARM.Build.0 = Debug|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Debug|x64.Build.0 = Debug|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Debug|x86.Build.0 = Debug|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Release|ARM.ActiveCfg = Release|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Release|ARM.Build.0 = Release|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Release|x64.ActiveCfg = Release|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Release|x64.Build.0 = Release|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Release|x86.ActiveCfg = Release|Any CPU
-		{7C357A20-C548-45C3-842B-4BA0495C5B03}.Release|x86.Build.0 = Release|Any CPU
 		{41CCA24D-CC41-4FE3-A551-C80E62141289}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{41CCA24D-CC41-4FE3-A551-C80E62141289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41CCA24D-CC41-4FE3-A551-C80E62141289}.Debug|ARM.ActiveCfg = Debug|Any CPU

@@ -2,8 +2,6 @@
 using OpenThreadDotNet.Spinel;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 
 namespace OpenThreadDotNet.Networking
 {
@@ -58,9 +56,13 @@ namespace OpenThreadDotNet.Networking
         {
             if (BitConverter.IsLittleEndian)
             {
-                Array.Reverse(data);
+#if NETCORE
+                Array.Reverse(data);               
+#else
+               ArrayExtensions.Reverse(data);
+#endif
             }
-   
+
             return BitConverter.ToUInt16(data, 0);
         }
 
@@ -80,9 +82,12 @@ namespace OpenThreadDotNet.Networking
 
             if (BitConverter.IsLittleEndian)
             {
-                Array.Reverse(value);                
+#if NETCORE
+                Array.Reverse(value);
+#else               
+                ArrayExtensions.Reverse(value);
+#endif          
             }
-
             return value;
         }
 

@@ -145,8 +145,20 @@ namespace OpenThreadDotNet.Networking.Sockets
             //return hashCode;
 
             if (m_HashCode == 0)
-                m_HashCode = StringComparer.InvariantCultureIgnoreCase.GetHashCode(ToString());
+            {
+                const int p = 16777619;
+                m_HashCode = -595054056;
 
+                for (int i = 0; i < m_Numbers.Length; i++)
+                    m_HashCode = (m_HashCode ^ m_Numbers[i]) * p;
+
+                m_HashCode += m_HashCode << 13;
+                m_HashCode ^= m_HashCode >> 7;
+                m_HashCode += m_HashCode << 3;
+                m_HashCode ^= m_HashCode >> 17;
+                m_HashCode += m_HashCode << 5;           
+            }
+               
             return m_HashCode;
         }
     } 

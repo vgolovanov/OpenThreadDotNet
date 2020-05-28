@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using OpenThreadDotNet;
-using OpenThreadDotNet.Networking;
 using OpenThreadDotNet.Networking.IPv6;
 using OpenThreadDotNet.Networking.Lowpan;
 using OpenThreadDotNet.Networking.Sockets;

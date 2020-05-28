@@ -225,8 +225,8 @@ namespace OpenThreadDotNet.Networking.Sockets
             byte[] newBuffer = new byte[receivedPacketBuffer.BytesReceived];
 
             lock (receivedPacketBuffer.LockObject)
-            {                             
-                Buffer.BlockCopy(receivedPacketBuffer.Buffer, 0, newBuffer, 0, receivedPacketBuffer.BytesReceived);              
+            {                                             
+                Array.Copy(receivedPacketBuffer.Buffer, 0, newBuffer, 0, receivedPacketBuffer.BytesReceived);
                 // now empty our datagram buffer
                 InitializeReceivedPacketBuffer(receivedPacketBuffer);               
             }

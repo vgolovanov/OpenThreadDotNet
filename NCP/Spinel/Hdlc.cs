@@ -122,7 +122,7 @@
                     throw new SpinelFormatException("Stream data error.");
                 }
 
-                byte frameByte = Convert.ToByte(stream.ReadByte());
+                byte frameByte = stream.ReadByte();
 
                 if (frameByte == HdlcByteFlag)
                 {
@@ -132,7 +132,7 @@
           
             while (true)
             {
-                byte frameByte = Convert.ToByte(stream.ReadByte());
+                byte frameByte = stream.ReadByte();
 
                 if (frameByte == HdlcByteFlag)
                 {
@@ -148,7 +148,7 @@
 
                 if (frameByte == HdlcByteESC)
                 {
-                    frameByte = Convert.ToByte(stream.ReadByte());
+                    frameByte = stream.ReadByte();
                     frameByte ^= 0x20;
                 }
 
@@ -161,7 +161,11 @@
                 throw new SpinelFormatException("Frame crc error.");
             }
 
-            frameDecoded.RemoveRange(frameDecoded.Count - 2, 2);
+            //frameDecoded.RemoveRange(frameDecoded.Count - 2, 2);
+            //remove last 2 bytes
+            frameDecoded.RemoveAt(frameDecoded.Count - 1);
+            frameDecoded.RemoveAt(frameDecoded.Count - 1);
+
 
             return (byte[])frameDecoded.ToArray(typeof(byte));
         }

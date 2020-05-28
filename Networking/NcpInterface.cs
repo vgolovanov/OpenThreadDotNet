@@ -14,7 +14,7 @@ namespace OpenThreadDotNet
 
         private string name;
         private string ncpVersion;
-        private string protocolVersion;
+        private uint[] protocolVersion;
         private InterfaceType interfaceType;
         private string vendor;
         private Capabilities[] capabilities;
@@ -56,7 +56,17 @@ namespace OpenThreadDotNet
 
         public string ProtocolVersion
         {
-            get { return protocolVersion; }
+            get 
+            {
+                if (protocolVersion == null)
+                {
+                    return string.Empty;
+                }
+                else
+                {
+                    return string.Format("Version {0}.{1}", protocolVersion[0], protocolVersion[1]);
+                }             
+            }
         }
 
         public InterfaceType InterfaceType
@@ -176,12 +186,17 @@ namespace OpenThreadDotNet
             wpanApi.FrameDataReceived += new FrameReceivedEventHandler(FrameDataReceived);
             wpanApi.Open();
 
+       //     wpanApi.DoReset();
+            
+            Thread.Sleep(300);
+
             ReadInitialValues();
             NetworkingInterface.SetupInterface(this);
         }
 
         private void ReadInitialValues()
         {
+           
             LowpanIdentity = new LowpanIdentity(wpanApi);
             LowpanCredential = new LowpanCredential(wpanApi);
 
@@ -247,8 +262,8 @@ namespace OpenThreadDotNet
         public LowpanChannelInfo[] ScanEnergy()
         {
             wpanApi.DoScan(2);
-            scanThread.WaitOne(10000);
-           
+            scanThread.WaitOne(10000, false);
+
             if (scanEnergyResult.Count > 0)
             {
                 LowpanChannelInfo[] scanEnergyArray = (LowpanChannelInfo[])scanEnergyResult.ToArray(typeof(LowpanChannelInfo));
@@ -264,8 +279,9 @@ namespace OpenThreadDotNet
         public LowpanBeaconInfo[] ScanBeacon()
         {
             wpanApi.DoScan(1);
-            scanThread.WaitOne(10000);
-        
+            scanThread.WaitOne(10000, false);
+
+
             if (scanMacResult.Count > 0)        
             {            
                 LowpanBeaconInfo[] scanMacArray = (LowpanBeaconInfo[])scanMacResult.ToArray(typeof(LowpanBeaconInfo));            
@@ -404,8 +420,12 @@ namespace OpenThreadDotNet
 
             if (properyId == SpinelProperties.PROP_LAST_STATUS)
             {
-                LastStatus lastStatus = (LastStatus)Convert.ToInt32(frameData.Response);
-                OnLastStatusHandler(lastStatus);
+                if (OnLastStatusHandler != null)
+                {
+                    LastStatus lastStatus = (LastStatus)Converter.ToUInt32(frameData.Response);
+                    OnLastStatusHandler(lastStatus);
+                }
+                
                 return;
             }
             else if (properyId == SpinelProperties.PROP_STREAM_NET)
@@ -421,7 +441,7 @@ namespace OpenThreadDotNet
             }
             else if (properyId == SpinelProperties.SPINEL_PROP_MAC_SCAN_STATE)
             {
-                byte scanState = Convert.ToByte(frameData.Response);
+                byte scanState = Converter.ToByte(frameData.Response);
 
                 if (scanState == 0)
                 {
@@ -475,7 +495,7 @@ namespace OpenThreadDotNet
                 switch (properyId)
                 {
                     case SpinelProperties.SPINEL_PROP_NET_ROLE :
-                        State newRole = (State)Convert.ToByte(frameData.Response);
+                        State newRole = (State)Converter.ToByte(frameData.Response);
                         if (state != newRole)
                         {
                             state = newRole;

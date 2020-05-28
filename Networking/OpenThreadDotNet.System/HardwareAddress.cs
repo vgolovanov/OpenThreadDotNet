@@ -88,9 +88,9 @@ namespace OpenThreadDotNet.Networking.Sockets
         }
 
         public byte[] GetAddressBytes(){
-            byte[] tmp = new byte[address.Length];
-            Buffer.BlockCopy(address,0,tmp,0,address.Length);
-            return tmp;
+            byte[] tmp = new byte[address.Length];          
+            Array.Copy(address, 0, tmp, 0,address.Length);
+            return tmp;          
         }
 
         public static HardwareAddress Parse(string address) {

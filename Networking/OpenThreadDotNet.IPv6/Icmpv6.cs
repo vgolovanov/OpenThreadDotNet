@@ -52,13 +52,13 @@ namespace OpenThreadDotNet.Networking.IPv6
             packetEchoRequest.NextHeader = IPv6Protocol.ICMPv6;
             packetEchoRequest.Payload = icmpv6Packet;
 
-            pingStart = DateTime.Now;           
+            pingStart = DateTime.UtcNow;           
             isResponseTimeout = false;
 
             replyTime = -1;
 
             NetworkingInterface.SendAndWait(packetEchoRequest.ToBytes());         
-            pingTimeout.WaitOne(5000);
+            pingTimeout.WaitOne(5000,false);
 
             if (replyTime == -1) 
             {
@@ -111,7 +111,7 @@ namespace OpenThreadDotNet.Networking.IPv6
                     return;
                 }
                 
-                TimeSpan elapsed = DateTime.Now - pingStart;
+                TimeSpan elapsed = DateTime.UtcNow - pingStart;
                 replyTime = (short)elapsed.TotalMilliseconds;              
                 pingTimeout.Set();
             }

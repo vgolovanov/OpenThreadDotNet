@@ -63,7 +63,17 @@ namespace OpenThreadDotNet
 
         public static bool IsNumeric(string input)
         {
-            return int.TryParse(input, out _);
+            //return int.TryParse(input, out _);
+
+            try
+            {
+                int.Parse(input);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }                        
         }       
     }
 }

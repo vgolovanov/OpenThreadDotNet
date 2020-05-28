@@ -1,9 +1,4 @@
-﻿using OpenThreadDotNet;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace OpenThreadDotNet.Networking.Lowpan
+﻿namespace OpenThreadDotNet.Networking.Lowpan
 {
     public class LowpanCredential
     {

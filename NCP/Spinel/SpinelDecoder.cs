@@ -74,7 +74,7 @@ namespace OpenThreadDotNet.Spinel
 
             frameIndex += arrayLength + 1; // +1 \0 char removed from the array
 
-            return utf8.GetString(segment);
+            return utf8.GetString(segment,0,segment.Length);
         }
 
         public uint ReadUintPacked()
@@ -293,7 +293,7 @@ namespace OpenThreadDotNet.Spinel
                 {
                     if (spinelFormat[indexFormat + 1] != '(')
                     {
-                        throw new SpinelFormatException(string.Format(CultureInfo.InvariantCulture, "Incorrect structure format."));
+                        throw new SpinelFormatException( "Incorrect structure format.");
                     }
 
                     int struct_end = GetIndexOfEndingBrace(spinelFormat, indexFormat + 1);

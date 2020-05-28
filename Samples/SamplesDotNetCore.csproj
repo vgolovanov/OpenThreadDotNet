@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NCP\NCP.csproj" />
-    <ProjectReference Include="..\Networking\Networking.csproj" />
-    <ProjectReference Include="..\StreamDotNetCore\StreamDotNetCore.csproj" />
+    <ProjectReference Include="..\StreamDotNetCore\SerialDotNetCore.csproj" />
   </ItemGroup>
+
+  <Import Project="..\Networking\Networking.projitems" Label="Shared" />
 
 </Project>

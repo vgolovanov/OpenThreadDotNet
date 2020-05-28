@@ -14,7 +14,9 @@ namespace OpenThreadDotNet
         private Queue waitingQueue = new Queue();
         private bool isSyncFrameExpecting = false;
         private AutoResetEvent receivedPacketWaitHandle = new AutoResetEvent(false);
-             
+
+        static object locker = new object();
+
         public event FrameReceivedEventHandler FrameDataReceived;
 
         /// <summary>
@@ -47,7 +49,7 @@ namespace OpenThreadDotNet
 
             try
             {
-                return Convert.ToInt32(frameData.Response);
+                return Converter.ToInt32(frameData.Response);
             }
             catch
             {
@@ -55,14 +57,13 @@ namespace OpenThreadDotNet
             }
         }
 
-        public string DoProtocolVersion()
+        public uint[] DoProtocolVersion()
         {
             FrameData frameData = PropertyGetValue(SpinelProperties.PROP_PROTOCOL_VERSION);
 
             try
-            {
-                int[] protocol = (int[])frameData.Response;
-                return string.Format("Version {0}.{1}", protocol[0], protocol[1]);
+            {               
+                return (uint[])frameData.Response;
             }
             catch
             {
@@ -99,13 +100,13 @@ namespace OpenThreadDotNet
         }
 
 
-        public byte DoInterfaceType()
+        public uint DoInterfaceType()
         {
             FrameData frameData = PropertyGetValue(SpinelProperties.PROP_INTERFACE_TYPE);
 
             try
             {
-                return Convert.ToByte( frameData.Response);
+                return (uint) frameData.Response;
             }
             catch
             {
@@ -174,7 +175,7 @@ namespace OpenThreadDotNet
         {
             FrameData frameData = PropertySetValue(SpinelProperties.SPINEL_PROP_NET_ROLE , role, "C");
 
-            if (frameData != null && Convert.ToByte(frameData.Response) == role)
+            if (frameData != null && Converter.ToByte(frameData.Response) == role)
             {
                 return true;
             }
@@ -190,7 +191,7 @@ namespace OpenThreadDotNet
 
             try
             {
-                return Convert.ToByte(frameData.Response);
+                return Converter.ToByte(frameData.Response);
             }
             catch
             {
@@ -202,7 +203,7 @@ namespace OpenThreadDotNet
         {
             FrameData frameData = PropertySetValue(SpinelProperties.PROP_PHY_CHAN, channel, "C");
 
-            if (frameData != null && Convert.ToByte( frameData.Response) == channel)
+            if (frameData != null && Converter.ToByte( frameData.Response) == channel)
             {
                 return true;
             }
@@ -260,7 +261,7 @@ namespace OpenThreadDotNet
 
             try
             {
-                return Convert.ToUInt16(frameData.Response);
+                return Converter.ToUInt16(frameData.Response);
             }
             catch
             {
@@ -272,7 +273,7 @@ namespace OpenThreadDotNet
         {
             FrameData frameData = PropertySetValue(SpinelProperties.SPINEL_PROP_MAC_15_4_PANID, panId, "S");
 
-            if (frameData != null && Convert.ToUInt16(frameData.Response) == panId)
+            if (frameData != null && Converter.ToUInt16(frameData.Response) == panId)
             {
                 return true;
             }
@@ -408,7 +409,7 @@ namespace OpenThreadDotNet
                 frameData =  PropertySetValue(SpinelProperties.SPINEL_PROP_NET_IF_UP, 0, "b");
             }
 
-            if (frameData != null && Convert.ToBoolean(frameData.Response) == interfaceState)
+            if (frameData != null && Converter.ToBoolean(frameData.Response) == interfaceState)
             {
                 return true;
             }
@@ -444,7 +445,7 @@ namespace OpenThreadDotNet
                 frameData = PropertySetValue(SpinelProperties.SPINEL_PROP_NET_STACK_UP , 0, "b");
             }
 
-            if (frameData != null && Convert.ToBoolean(frameData.Response) == threadState)
+            if (frameData != null && Converter.ToBoolean(frameData.Response) == threadState)
             {
                 return true;
             }
@@ -487,7 +488,7 @@ namespace OpenThreadDotNet
             FrameData frameData = PropertyGetValue(SpinelProperties.SPINEL_PROP_NET_PARTITION_ID);
             try
             {
-                return Convert.ToUInt32( frameData.Response);
+                return Converter.ToUInt32( frameData.Response);
             }
             catch
             {
@@ -513,7 +514,7 @@ namespace OpenThreadDotNet
                 frameData = PropertySetValue(SpinelProperties.SPINEL_PROP_NET_REQUIRE_JOIN_EXISTING, 0, "b");
             }
 
-            if (frameData != null && Convert.ToBoolean(frameData.Response) == State)
+            if (frameData != null && Converter.ToBoolean(frameData.Response) == State)
             {
                 return true;
             }
@@ -589,13 +590,13 @@ namespace OpenThreadDotNet
         /// </summary>
         private void StreamRX(int timeout = 0)
         {
-            DateTime start = DateTime.Now;
-
+            DateTime start = DateTime.UtcNow;
+            
             bool dataPooled = false;
 
             while (true)
             {
-                TimeSpan elapsed = DateTime.Now - start;
+                TimeSpan elapsed = DateTime.UtcNow - start;
 
                 if (timeout != 0)
                 {
@@ -720,7 +721,7 @@ namespace OpenThreadDotNet
 
                         foreach (var capsValue in caps)
                         {
-                            capsArray[index] = (Capabilities) Convert.ToUInt32( capsValue);
+                            capsArray[index] = (Capabilities)Converter.ToUInt32(capsValue);
                             index++;
                         }
 
@@ -877,15 +878,20 @@ namespace OpenThreadDotNet
 
             int uid = Utilities.GetUID(propertyId, tid);
 
-            Transact(commandId, payload, tid);
+            Console.WriteLine("Transact");
+           
+            lock (locker)
+            {
+                Transact(commandId, payload, tid);
 
-            if (!waitResponse) return null;
+                if (!waitResponse) return null;
 
-            isSyncFrameExpecting = true;
-
+                isSyncFrameExpecting = true;
+            }
+                   
             receivedPacketWaitHandle.Reset();
 
-            if (!receivedPacketWaitHandle.WaitOne(5000, false))            
+            if (!receivedPacketWaitHandle.WaitOne(115000, false))            
             {
                 throw new SpinelProtocolExceptions(string.Format("Timeout for sync packet {0}.", commandId));
             }

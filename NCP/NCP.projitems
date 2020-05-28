@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ceba0e85-a609-4783-a121-5c838a0adb7f</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>NCP</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ArrayExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ArrayListExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Delegates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spinel\FrameData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spinel\Hdlc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spinel\SpinelDeclarations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spinel\SpinelDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spinel\SpinelEncoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Spinel\SpinelProtocolExceptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WpanApi.cs" />
+  </ItemGroup>
+</Project>
