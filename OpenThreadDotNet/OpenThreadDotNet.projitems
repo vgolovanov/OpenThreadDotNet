@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>86fc8669-9cf3-478b-ad70-43e0f497ebf7</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>OpenThreadDotNet</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ArrayExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ArrayListExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\Delegates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\IStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\Spinel\FrameData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\Spinel\Hdlc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\Spinel\SpinelDeclarations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\Spinel\SpinelDecoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\Spinel\SpinelEncoder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\Spinel\SpinelProtocolExceptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\Utilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NCP\WpanApi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\NcpInterface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\NetUtilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\NetworkingInterface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\Icmpv6.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\Icmpv6EchoReply.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\Icmpv6EchoRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\Icmpv6Message.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\Icmpv6Packet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\IPPayload.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\IPv6Packet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\IPv6PseudoHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.IPv6\UdpDatagram.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Lowpan\ILowpanInterface.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Lowpan\LowpanBeaconInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Lowpan\LowpanChannelInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Lowpan\LowpanCounters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Lowpan\LowpanCredential.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Lowpan\LowpanDeclarations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Lowpan\LowpanDelegates.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Lowpan\LowpanIdentity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.Sockets\UdpSocket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.System\AddressFamily.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.System\EndPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.System\HardwareAddress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.System\IPv6Address.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.System\IPv6EndPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.System\SocketAddress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Networking\OpenThreadDotNet.System\SocketsException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
+  </ItemGroup>
+</Project>

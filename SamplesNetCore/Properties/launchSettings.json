@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SamplesNetCore": {
+      "commandName": "Project",
+      "commandLineArgs": "COM4"
+    }
+  }
+}

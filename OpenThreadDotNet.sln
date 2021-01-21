@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "OpenThreadDotNet", "OpenThreadDotNet\OpenThreadDotNet.shproj", "{86FC8669-9CF3-478B-AD70-43E0F497EBF7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenThreadNetCore", "OpenThreadNetCore\OpenThreadNetCore.csproj", "{A59ED862-E34A-4660-9136-66A9F6CCC5E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LowpanCmd", "LowpanCmd\LowpanCmd.csproj", "{C047E688-032D-4A5D-8FB2-7CAC3C60D888}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SamplesNetCore", "SamplesNetCore\SamplesNetCore.csproj", "{F8EB089C-751A-491E-ADB7-F6FCC6499FD0}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "OpenThreadNanoFramework", "OpenThreadNanoFramework\OpenThreadNanoFramework.nfproj", "{73D4AED1-60E1-4DB7-88F3-97E8D6B79241}"
+EndProject
+Project("{11A8DD76-328B-46DF-9F39-F559912D0360}") = "SamplesNanoFramework", "SamplesNanoFramework\SamplesNanoFramework.nfproj", "{CA9172B3-3A3A-4C79-B14F-23D30C7B31ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenThreadTinyCLR", "OpenThreadTinyCLR\OpenThreadTinyCLR.csproj", "{CBAC6E03-0087-4614-B3D9-9B1EB787464D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A5D1055C-64E7-40D9-9CF0-299A490EECAC}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesTinyCLR", "SamplesTinyCLR\SamplesTinyCLR.csproj", "{89F0FABA-A7D6-4CFA-8B0E-EC40FEBCA9DF}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		OpenThreadDotNet\OpenThreadDotNet.projitems*{86fc8669-9cf3-478b-ad70-43e0f497ebf7}*SharedItemsImports = 13
+		OpenThreadDotNet\OpenThreadDotNet.projitems*{a59ed862-e34a-4660-9136-66a9f6ccc5e5}*SharedItemsImports = 5
+		OpenThreadDotNet\OpenThreadDotNet.projitems*{cbac6e03-0087-4614-b3d9-9b1eb787464d}*SharedItemsImports = 4
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A59ED862-E34A-4660-9136-66A9F6CCC5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A59ED862-E34A-4660-9136-66A9F6CCC5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A59ED862-E34A-4660-9136-66A9F6CCC5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A59ED862-E34A-4660-9136-66A9F6CCC5E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C047E688-032D-4A5D-8FB2-7CAC3C60D888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C047E688-032D-4A5D-8FB2-7CAC3C60D888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C047E688-032D-4A5D-8FB2-7CAC3C60D888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C047E688-032D-4A5D-8FB2-7CAC3C60D888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8EB089C-751A-491E-ADB7-F6FCC6499FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8EB089C-751A-491E-ADB7-F6FCC6499FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8EB089C-751A-491E-ADB7-F6FCC6499FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8EB089C-751A-491E-ADB7-F6FCC6499FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D4AED1-60E1-4DB7-88F3-97E8D6B79241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D4AED1-60E1-4DB7-88F3-97E8D6B79241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D4AED1-60E1-4DB7-88F3-97E8D6B79241}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{73D4AED1-60E1-4DB7-88F3-97E8D6B79241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D4AED1-60E1-4DB7-88F3-97E8D6B79241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D4AED1-60E1-4DB7-88F3-97E8D6B79241}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CA9172B3-3A3A-4C79-B14F-23D30C7B31ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9172B3-3A3A-4C79-B14F-23D30C7B31ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9172B3-3A3A-4C79-B14F-23D30C7B31ED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CA9172B3-3A3A-4C79-B14F-23D30C7B31ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9172B3-3A3A-4C79-B14F-23D30C7B31ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9172B3-3A3A-4C79-B14F-23D30C7B31ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CBAC6E03-0087-4614-B3D9-9B1EB787464D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBAC6E03-0087-4614-B3D9-9B1EB787464D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBAC6E03-0087-4614-B3D9-9B1EB787464D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBAC6E03-0087-4614-B3D9-9B1EB787464D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F0FABA-A7D6-4CFA-8B0E-EC40FEBCA9DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89F0FABA-A7D6-4CFA-8B0E-EC40FEBCA9DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89F0FABA-A7D6-4CFA-8B0E-EC40FEBCA9DF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{89F0FABA-A7D6-4CFA-8B0E-EC40FEBCA9DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89F0FABA-A7D6-4CFA-8B0E-EC40FEBCA9DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89F0FABA-A7D6-4CFA-8B0E-EC40FEBCA9DF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D229A801-E67F-40BC-9D92-E6893FD3BBF3}
+	EndGlobalSection
+EndGlobal
