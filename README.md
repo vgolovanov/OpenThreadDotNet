@@ -1,4 +1,4 @@
-# OpenthreadDotNet
+# OpenThreadDotNet
 ​**OpenThreadDotNet** is a .Net library designed to work with the Thread network. To develop 6LoWPAN applications, you will need a radio module running as an OpenThread Network Co-Processor (NCP). More information is available on the webpage  https://openthread.io/platforms/co-processor 
 
 ​Currently library works on Net Core platform and reduced versions of the .NET CLR, nanoFramework (https://nanoframework.net/) and TinyCLR (https://www.ghielectronics.com/tinyclr/features/) platforms. 
